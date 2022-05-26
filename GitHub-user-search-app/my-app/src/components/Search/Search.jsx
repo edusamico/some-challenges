@@ -1,8 +1,10 @@
-import './Search.css'
 import React, { useState } from 'react'
+
 import { Button } from '../Button/Button'
 import { UserInfo } from '../UserInfo/UserInfo'
-import { api } from '../../Service/api'
+import { api } from '../../services/api'
+
+import './Search.css'
 
 export const Search = () => {
     const [textInput, setTextInput] = useState('');
@@ -13,7 +15,8 @@ export const Search = () => {
         setTextInput(e.target.value);
     }
 
-    const handleClick = async () => {
+    const handleClick = async (e) => {
+        e.preventDefault();
         setLoading(true);
         let json = await api.getDataUser(textInput);
 
@@ -35,11 +38,8 @@ export const Search = () => {
                 />
             </form>
             {(!loading && jsonCard.login === textInput &&
-                <UserInfo data={jsonCard}
-                />)}
-
-
-
+                <UserInfo data={jsonCard} />)}
+                
         </div>
     )
 }

@@ -1,11 +1,10 @@
 import React from 'react'
 import './UserInfo.css'
-
+import NumbersSection from './NumbersSection'
 export const UserInfo = ({ data }) => {
 
     return (
         <main className='card'>
-            {data.message && "Perfil Not Found"}
             <section className='user-title'>
                 <div className='avatar'>
                     <img alt="avatar" src={data.avatar_url} ></img>
@@ -18,29 +17,18 @@ export const UserInfo = ({ data }) => {
 
             </section>
             <section className='description'>
-                <p>{(data.bio !== null && data.bio) || (data.bio === null && "Bio not found")}</p>
+                {(data.bio !== null && <p>{data.bio}</p>)}
             </section>
 
-            <section className='numbers'>
-                <div>
-                    <h4>Repos</h4>
-                    <p>{data.public_repos}</p>
-                </div>
-                <div>
-                    <h4>Followers</h4>
-                    <p>{data.followers}</p>
-                </div>
-                <div>
-                    <h4>Following</h4>
-                    <p>{data.following}</p>
-                </div>
-            </section>
+            <NumbersSection public_repos={data.public_repos}
+                followers={data.followers}
+                following={data.following} />
 
             <section className='more-info'>
-                <li>{(data.location !== null && data.location) || (data.location === null && "Location not found")}</li>
-                <li>{(data.html_url !== null && data.html_url) || (data.html_url === null && "Profile not found")}</li>
-                <li>{(data.email !== null && data.email) || (data.email === null && "E-mail not found")}</li>
-                <li>{(data.company !== null && data.company) || (data.company === null && "Company not found")}</li>
+                {(data.location !== null && <li>{data.location}</li>)}
+                {(data.html_url !== null && <li>{data.html_url}</li>)}
+                {(data.email !== null && <li>{data.email}</li>)}
+                {(data.company !== null && <li>{data.company}</li>)}
             </section>
         </main>
 
