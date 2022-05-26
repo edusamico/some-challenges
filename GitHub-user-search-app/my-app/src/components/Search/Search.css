@@ -1,0 +1,23 @@
+form {
+    background-color: #1f2a48;
+    width: 80vw;
+    max-width: 600px;
+	margin: auto;
+	padding: 20px;
+	border: none;
+	margin-bottom: 10px;
+	border-radius: 20px;
+    display: flex;
+    justify-content: space-between;
+}
+form > input[type="search"], input[type="search"]:focus, input[type="search"]::placeholder {
+    border: 0 none;
+    outline: 0;
+    background-color: #1f2a48;
+    padding: 15px 30px 15px 5px;
+    flex-grow: 1;
+    color: #eee;
+    font-family: monospace;
+    font-size: 14px;
+}
+
