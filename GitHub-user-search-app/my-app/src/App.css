@@ -6,12 +6,19 @@ body {
   background-color: #141c2f;
 }
 
+.white-content {
+  background: #ccc;
+}
+
 .App {
   max-width: 600px;
   display: flex;
   flex-direction: column;
   font-family: monospace;
-  color: aliceblue;
+  color: #e4e4e4;
   align-items: center;
   align-content: center;
 }
+
+
+

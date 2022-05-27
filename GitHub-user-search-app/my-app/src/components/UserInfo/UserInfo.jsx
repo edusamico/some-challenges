@@ -22,7 +22,6 @@ export const UserInfo = ({ data }) => {
                     <h2>@{data.login}</h2>
                     <h3>Joined {formattedDate}</h3>
                 </div>
-
             </section>
             <section className='description'>
                 {(data.bio !== null && <p>{data.bio}</p>)}

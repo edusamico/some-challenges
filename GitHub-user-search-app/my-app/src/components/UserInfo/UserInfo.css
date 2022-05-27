@@ -10,6 +10,11 @@
     flex-direction: column;
 }
 
+.white-content .card {
+	color: #1f2a48;
+    background-color: #fff;
+}
+
 .user-title {
     font-size: 10px;
     width: 80vw;
@@ -61,9 +66,19 @@
     padding: 10px 0px;
 }
 
+.white-content .numbers {
+	color: #1f2a48;
+    background-color: #0079fe;
+}
+
 .numbers h4 {
     margin: 10px;
     color: #aaa;
+}
+
+.white-content .numbers h4 {
+    margin: 10px;
+    color: #1f2a48;
 }
 
 .numbers p {

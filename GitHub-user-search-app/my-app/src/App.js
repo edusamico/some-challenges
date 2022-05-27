@@ -1,13 +1,17 @@
-import './App.css';
 import { Header } from './components/Header/Header';
 import { Search } from './components/Search/Search'
+import { ThemeContextWrapper } from './contexts/theme-context';
+
+import './App.css';
 
 function App() {
   return (
-    <div className="App">
-      <Header />
-      <Search />
-    </div>
+    <ThemeContextWrapper>
+      <div className="App">
+        <Header />
+        <Search />
+      </div>
+    </ThemeContextWrapper>
   );
 }
 
