@@ -3,6 +3,14 @@ import './UserInfo.css'
 import NumbersSection from './NumbersSection'
 export const UserInfo = ({ data }) => {
 
+    const formattedDate = new Intl.DateTimeFormat('en-US',
+        {
+            day: '2-digit',
+            month: 'long',
+            year: 'numeric',
+        })
+        .format(Date.parse(data.created_at));
+
     return (
         <main className='card'>
             <section className='user-title'>
@@ -12,7 +20,7 @@ export const UserInfo = ({ data }) => {
                 <div className='user-info'>
                     <h1>{data.name}</h1>
                     <h2>@{data.login}</h2>
-                    <h3>{data.created_at}</h3>
+                    <h3>Joined {formattedDate}</h3>
                 </div>
 
             </section>
