@@ -1,22 +1,19 @@
 import React from 'react'
-import { ThemeContext, themes } from '../../contexts/theme-context';
+import { ThemeContext } from '../../contexts/theme-context';
 
 import './Header.css'
 
 export const Header = () => {
 
     return (
-
-
         <header className='header'>
             <span className='logo'>devfinder</span>
             <ThemeContext.Consumer>
-                {value => {
+                {props => {
                     return <label className='switch'>
-                        <input type="checkbox" onClick={() => value.changeTheme()} />
+                        <input type="checkbox" onClick={() => props.changeTheme()} />
                         <span className='slider round' />
-                    </label>
-                }
+                    </label>}
                 }
             </ThemeContext.Consumer>
 

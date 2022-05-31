@@ -3,6 +3,7 @@ import React, { useState } from 'react'
 import { Button } from '../Button/Button'
 import { UserInfo } from '../UserInfo/UserInfo'
 import { api } from '../../services/api'
+import { Modal } from "../Modal/Modal";
 
 import './Search.css'
 
@@ -10,6 +11,7 @@ export const Search = () => {
     const [textInput, setTextInput] = useState('');
     const [jsonCard, setJsonCard] = useState({});
     const [loading, setLoading] = useState(false);
+    const [isModelVisible, setIsModalVisible] = useState(false);
 
     const handleOnChange = (e) => {
         setTextInput(e.target.value);
@@ -19,12 +21,8 @@ export const Search = () => {
         e.preventDefault();
         setLoading(true);
         let json = await api.getDataUser(textInput);
-
-        if (json.message) {
-            alert(`Username "${textInput}" not found. Please, try again.`)
-        }
-
         setJsonCard(json);
+        json.message ? setIsModalVisible(true) : setIsModalVisible(false);
         setLoading(false);
 
     }
@@ -37,9 +35,11 @@ export const Search = () => {
                     text={(loading) ? "Wait" : "Search"}
                 />
             </form>
+
             {(!loading && jsonCard.login === textInput &&
                 <UserInfo data={jsonCard} />)}
-                
+            {(isModelVisible ? (<Modal message={jsonCard.message} onClose={() => setIsModalVisible(false)} />) : null)}
+
         </div>
     )
 }

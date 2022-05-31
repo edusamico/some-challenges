@@ -11,14 +11,14 @@ export const ThemeContext = createContext({
 })
 
 export const ThemeContextWrapper = (props) => {
-  const [theme, setTheme] = useState(themes.dark);
+  const [themeState, setTheme] = useState(themes.dark);
 
-  const changeTheme = () => {
-    setTheme(theme == themes.dark ? themes.light : themes.dark);
+  const howChangeTheme = () => {
+    setTheme(themeState === themes.dark ? themes.light : themes.dark);
   }
 
   useEffect(() => {
-    switch (theme) {
+    switch (themeState) {
       case themes.light:
         document.body.classList.add('white-content');
         break;
@@ -27,10 +27,10 @@ export const ThemeContextWrapper = (props) => {
         document.body.classList.remove('white-content');
         break;
     }
-  }, [theme]);
+  }, [themeState]);
 
   return (
-    <ThemeContext.Provider value={{ theme: theme, changeTheme: changeTheme }}>
+    <ThemeContext.Provider value={{ theme: themeState, changeTheme: howChangeTheme }}>
       {props.children}
     </ThemeContext.Provider>
   );
