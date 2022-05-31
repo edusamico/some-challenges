@@ -5,6 +5,7 @@ import { UserInfo } from '../UserInfo/UserInfo'
 import { api } from '../../services/api'
 import { Modal } from "../Modal/Modal";
 
+import { BsSearch } from "react-icons/bs";
 import './Search.css'
 
 export const Search = () => {
@@ -29,7 +30,7 @@ export const Search = () => {
     return (
         <div>
             <form>
-                <input placeholder='Search GitHub username...' onChange={handleOnChange} autoFocus={true} type="search"></input>
+            <i><BsSearch/></i><input placeholder='Search GitHub username...' onChange={handleOnChange} autoFocus={true} type="search"></input>
                 <Button
                     onClick={(handleClick)}
                     text={(loading) ? "Wait" : "Search"}

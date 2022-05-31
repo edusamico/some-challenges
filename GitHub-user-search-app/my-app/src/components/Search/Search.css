@@ -18,23 +18,32 @@ form {
 }
 
 form > input[type="search"], input[type="search"]:focus, input[type="search"]::placeholder {
-    border:  none;
+    border: none;
     outline: 0;
     background-color: #1f2a48;
-    padding: 15px 15px 15px 0px;
+    padding: 5px 15px 5px 0px;
     flex-grow: 1;
     color: #eee;
     font-family: monospace;
     font-size: 14px;
 }
 
+form i {
+    font-size: 20px;
+    top: 9px;
+    left: 0px;
+    margin-right: 10px;
+    position: relative;
+    
+}
+
 .white-content form > input[type="search"], .white-content input[type="search"]:focus, .white-content input[type="search"]::placeholder {
-    border: 0 none;
-    outline: 0;
     background-color: #fff;
-    padding: 15px 30px 15px 5px;
-    flex-grow: 1;
     color: #1f2a48;
-    font-family: monospace;
-    font-size: 14px;
+}
+
+@media (max-width: 375px) {
+    form > input[type="search"], input[type="search"]:focus, input[type="search"]::placeholder {
+        font-size: 10px;
+    }
 }

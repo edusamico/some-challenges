@@ -1,6 +1,10 @@
 import React from 'react'
-import './UserInfo.css'
+
 import NumbersSection from './NumbersSection'
+import { BsFillHouseFill, BsGithub, BsBuilding, BsMailbox } from "react-icons/bs";
+
+import './UserInfo.css'
+
 export const UserInfo = ({ data }) => {
 
     const formattedDate = new Intl.DateTimeFormat('en-US',
@@ -32,10 +36,10 @@ export const UserInfo = ({ data }) => {
                 following={data.following} />
 
             <section className='more-info'>
-                {(data.location !== null && <li>{data.location}</li>)}
-                {(data.html_url !== null && <li>{data.html_url}</li>)}
-                {(data.email !== null && <li>{data.email}</li>)}
-                {(data.company !== null && <li>{data.company}</li>)}
+                {(data.location !== null && <p><BsFillHouseFill/> {data.location}</p>)}
+                {(data.html_url !== null && <p><BsGithub/> {data.html_url}</p>)}
+                {(data.email !== null && <p><BsMailbox/> {data.email}</p>)}
+                {(data.company !== null && <p><BsBuilding/> {data.company}</p>)}                
             </section>
         </main>
 
